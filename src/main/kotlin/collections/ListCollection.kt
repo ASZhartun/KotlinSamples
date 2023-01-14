@@ -1,5 +1,11 @@
 package collections
 
+fun sayHello(greetings: String, items: List<String>) {
+    items.forEach { item ->
+        println("$greetings, $item")
+    }
+}
+
 fun main() {
     val myArray = listOf("Kotlin", "Java", "XML")
 
@@ -19,6 +25,17 @@ fun main() {
     newArray.forEach {
         item -> println(item)
     }
+
+    println()
+
+    val newMutableMap = mutableMapOf(1 to "a", 2 to "b", 3 to "c")
+    newMutableMap[67] = "z"
+    newMutableMap.forEach {
+            item -> println(item)
+    }
+    println()
+    println("SayHello function demonstration:")
+    sayHello("Privet", myArray)
 }
 
 class ListCollection {
