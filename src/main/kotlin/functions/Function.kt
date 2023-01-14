@@ -1,4 +1,0 @@
-package functions
-
-class Function {
-}
