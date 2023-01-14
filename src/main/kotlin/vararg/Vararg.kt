@@ -1,6 +1,7 @@
 package vararg
 
-import conditions.greetings
+import functions.ActPerson
+import functions.Person
 
 fun sayHello(greetings: String, vararg items: String) {
     items.forEach { item ->
@@ -29,6 +30,21 @@ fun main() {
     greetPerson(person = "Hey", greeting = "Tolyan")
     greetPerson(person = "Tolyan")
     greetPerson()
+
+    println("New object creating")
+
+    val person = Person(firstName = "Tolyan", lastName = "Zhartun")
+    val person2 = Person()
+
+    println("This is ${person.firstName} ${person.lastName}")
+    println("This is ${person2.firstName} ${person2.lastName}")
+
+    val actPerson = ActPerson()
+//    actPerson.nickname = "later"
+    actPerson.printInfo()
+
+    val actPerson2 = ActPerson("Klim", "Zhmih")
+    println("This is ${actPerson2.firstName} ${actPerson2.lastName}")
 }
 
 class Vararg {
