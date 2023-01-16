@@ -1,11 +1,13 @@
 package interfaces
 
+import inheritance.FancyInfoProvider
+
 fun main() {
-    val provider = BasicPersonInfoProvider()
+    val provider = FancyInfoProvider()
     val person = Person()
     person.nickName = "Greeder"
     provider.printInfo(person)
-    println(provider.getPersonSignature(Person("Tolyan", "Zhartun")))
+    println(provider.sessionPrefix)
 
     println()
     println(provider.getSessionId())

@@ -1,7 +1,8 @@
 package interfaces
 
-class BasicPersonInfoProvider : PersonInfoProvider, SessionInfoProvider {
-    override val version: String
+open class BasicPersonInfoProvider : PersonInfoProvider, SessionInfoProvider {
+    open val sessionPrefix : String = "SessionID: SOME" // "open" for inheritance opportunity
+    override val version: String // not open for children cause its interface field
         get() = "Basic 1.0"
     override fun printInfo(person: Person) {
         super.printInfo(person)
@@ -13,7 +14,7 @@ class BasicPersonInfoProvider : PersonInfoProvider, SessionInfoProvider {
     }
 
     override fun getSessionId(): String {
-        return "SessionID: SOME"
+        return sessionPrefix
     }
 
 }
