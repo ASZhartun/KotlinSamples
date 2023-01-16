@@ -1,6 +1,6 @@
 package interfaces
 
-class BasicPersonInfoProvider : PersonInfoProvider {
+class BasicPersonInfoProvider : PersonInfoProvider, SessionInfoProvider {
     override val version: String
         get() = "Basic 1.0"
     override fun printInfo(person: Person) {
@@ -10,6 +10,10 @@ class BasicPersonInfoProvider : PersonInfoProvider {
 
     override fun getPersonSignature(person: Person): String {
         return person.toString()
+    }
+
+    override fun getSessionId(): String {
+        return "SessionID: SOME"
     }
 
 }
