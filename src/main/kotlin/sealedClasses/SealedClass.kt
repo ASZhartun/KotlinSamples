@@ -33,7 +33,32 @@ sealed class SealedClass {
         }
     }
 
-    data class Easy(val id: String, val name: String) : SealedClass()
+    data class Easy(val id: String, val name: String) : SealedClass() {
+
+        override fun equals(other: Any?): Boolean {
+            if (this === other) return true
+            println("same")
+            if (javaClass != other?.javaClass) return false
+            println("same class")
+
+            other as Easy
+
+            if (id != other.id) return false
+            println("same id")
+            if (name != other.name) return false
+            println("same name")
+            println("equals is true")
+            return true
+        }
+
+        override fun hashCode(): Int {
+            var result = id.hashCode()
+            result = 31 * result + name.hashCode()
+            println("hashcode of $this is $result")
+            return result
+        }
+    }
+
     data class Medium(val id: String, val name: String) : SealedClass()
     data class Hard(val id: String, val name: String, val multiplier: Float) : SealedClass()
 }
